@@ -1,0 +1,1 @@
+grant all privileges on all tables in schema base, const, auth to admin;
