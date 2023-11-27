@@ -1,10 +1,9 @@
 services:
   postgres:
     image: postgres
-    restart: never
-    # see networks section below
-    # networks:
-    #   - postgresql
+    restart: no
+    networks:
+      - vitfit
     environment:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=Password3000!!
@@ -14,12 +13,11 @@ services:
         max-file: "3"
     ports:
       - '5432:5432'
-    # volumes:
-    #   - vitfit-pgdata:/var/lib/postgresql/data
-# networks:
-#   postgresql:
-#     this can be commented out if not needed but it is useful to have a network for other dockers communicating with this PostgreSQL
-#     external: true
-# volumes:
-#   vitfit-pgdata:
-#     external: true
+    volumes:
+      - vitfit-pgdata:/var/lib/postgresql/data
+networks:
+  vitfit:
+    external: true
+volumes:
+  vitfit-pgdata:
+    external: true
