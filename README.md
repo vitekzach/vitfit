@@ -4,6 +4,7 @@
 ```powershell
 docker volume create vitfit-pgdata
 docker network create vitfit
+docker compose up
 cd database
 .\create_db_docker.ps1
 ```
